@@ -74,25 +74,25 @@ const API_KEY = "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";
 
 async function fetchDate() {
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model:"gpt-3.5-turbo",
+    // const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    //   method: "POST",
+    //   headers: {
+    //     Authorization: `Bearer ${API_KEY}`,
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     model:"gpt-3.5-turbo",
 
-        messages: [
-          { role: "system", content: "You are a career counselor who knows about NEP policy." },
-          { role: "user", content: `my personality traits are ${traits.join(', ')} tell the best two career option for me prefer roles in Medical,Engineering and Commerce in 2 words only ` },
-        ],
-        max_tokens: 100,
-      }),
-    });
-    //const response={"id":"chatcmpl-8WhOF5BCbOgRB3i2Z93pzIg0jvgrc","object":"chat.completion","created":1702803979,"model":"gpt-3.5-turbo-0613","choices":[{"index":0,"message":{"role":"assistant","content":"1. Event Coordinator\n2. Human Resources Manager"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":52,"completion_tokens":10,"total_tokens":62},"system_fingerprint":null}
-    const data = await response.json();
-    //data=response;
+    //     messages: [
+    //       { role: "system", content: "You are a career counselor who knows about NEP policy." },
+    //       { role: "user", content: `my personality traits are ${traits.join(', ')} tell the best two career option for me prefer roles in Medical,Engineering and Commerce in 2 words only ` },
+    //     ],
+    //     max_tokens: 100,
+    //   }),
+    // });
+    const response={"id":"chatcmpl-8WhOF5BCbOgRB3i2Z93pzIg0jvgrc","object":"chat.completion","created":1702803979,"model":"gpt-3.5-turbo-0613","choices":[{"index":0,"message":{"role":"assistant","content":"1. Event Coordinator\n2. Human Resources Manager"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":52,"completion_tokens":10,"total_tokens":62},"system_fingerprint":null}
+    //const data = await response.json();
+    data=response;
     console.log(JSON.stringify(data));
     console.log(traits);
     const firstChoice = data.choices[0];

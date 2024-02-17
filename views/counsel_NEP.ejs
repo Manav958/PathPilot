@@ -66,7 +66,7 @@ body {
     padding-top: 100px;
     z-index: 1;
     padding-top: 50px;
-    margin-top: 90px;
+    margin-top: 20px;
 }
 
 .question-box {
@@ -155,6 +155,36 @@ button:hover {
     background-size: cover;
     animation: walk 15s linear infinite; 
   }
+  .round-time-bar div {
+        height: 20px;
+        animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
+        transform-origin: left center;
+        background: linear-gradient(0.25turn, rgb(1, 53, 1), lightgreen);
+        border: solid black 5px;
+        margin-bottom: 20px;
+    }
+
+    .round-time-bar[data-style="smooth"] div {
+        animation: roundtime calc(var(--duration) * 1s) linear forwards;
+        border: solid black 2px;
+    }
+
+    .round-time-bar[data-style="fixed"] div {
+        width: calc(var(--duration) * 5%);
+
+    }
+
+    .round-time-bar[data-color="blue"] div {
+        background: linear-gradient(to bottom, #64b5f6, #1565c0);
+
+    }
+
+    @keyframes roundtime {
+        to {
+            /* More performant than width */
+            transform: scaleX(0);
+        }
+    }
    
    
 </style>
@@ -168,6 +198,9 @@ button:hover {
     </div>
 
     <div class="quiz-container">
+        <div class="round-time-bar" data-style="smooth" style="--duration: 30;">
+            <div></div>
+        </div>
         <form method="post" action="/answer_NEP">
             <div class="question-box question-group active" id="question1">
                 <div class="que">
@@ -409,8 +442,15 @@ button:hover {
     
 
     <script>
-
+    const button = document.querySelector("#restart-button");
+    const bars = document.querySelectorAll(".round-time-bar");
     document.getElementById('nextBtn').addEventListener('click', function () {
+        bars.forEach((bar) => {
+            bar.classList.remove("round-time-bar");
+            bar.offsetWidth;
+            bar.classList.add("round-time-bar");
+        });
+        
         var activeGroup = document.querySelector('.question-group.active');
         activeGroup.classList.remove('active');
 
