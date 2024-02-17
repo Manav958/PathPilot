@@ -70,7 +70,7 @@ console.log(traits);
 
 const fetch = require("node-fetch");
 
-const API_KEY = "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";
+const API_KEY = "";
 
 async function fetchDate() {
   try {
