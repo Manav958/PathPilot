@@ -190,98 +190,23 @@
   margin-left: 15px;
 }
 
-.glowing-btn {
-  position: relative;
-  color: var(--glow-color);
-  cursor: pointer;
-  padding: 0.25em 0.8em; /* Adjust the padding to reduce button size */
-  font-size: 1.5em;
-  border: 0.15em solid var(--glow-color);
-  border-radius: 0.45em;
-  background: none;
-  perspective: 2em;
-  font-family: "Raleway", sans-serif;
-  font-weight: 900;
-  /* letter-spacing: 1em; */
 
-  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  animation: border-flicker 2s linear infinite;
+.glowing-btn{
+  border-radius: 6px;
+  background-color: #03e9f4fc;
+  border: rgb(167, 142, 142);
+  width: 20vh;
+  height: 9vh;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
 }
 
-.glowing-txt {
-  float: left;
-  margin-left: 0.6em;
-  margin-right: 0.6em;
-  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-  animation: text-flicker 3s linear infinite;
+.glowing-txt{
+  color: black;
 }
 
-.faulty-letter {
-  opacity: 0.5;
-  animation: faulty-flicker 2s linear infinite;
-}
 
-.glowing-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.7;
-  filter: blur(1em);
-  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-  background: var(--glow-color);
-  pointer-events: none;
-}
 
-.glowing-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  z-index: -1;
-  background-color: var(--glow-color);
-  box-shadow: 0 0 2em 0.2em var(--glow-color);
-  transition: opacity 100ms linear;
-}
-
-.glowing-btn:hover {
-  color: #0251b3;
-  text-shadow: none;
-  animation: none;
-}
-
-.glowing-btn:hover .glowing-txt {
-  animation: none;
-}
-
-.glowing-btn:hover .faulty-letter {
-  animation: none;
-  text-shadow: none;
-  opacity: 1;
-}
-
-.glowing-btn:hover:before {
-  filter: blur(1.5em);
-  opacity: 1;
-}
-
-.glowing-btn:hover:after {
-  opacity: 1;
-}
 
 @keyframes faulty-flicker {
   0% {
@@ -429,6 +354,7 @@
   align-items: center;
   margin: 0px 100px;
   flex-wrap: wrap;
+  z-index: 1000;
 }
 
 .social-icon__item,
@@ -448,15 +374,15 @@
 }
 
 .menu__link {
-  font-size: 1.2rem;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-  text-decoration: none;
-  opacity: 0.75;
-  font-weight: 300;
-}
+            font-size: 1.2rem;
+            color: #fff;
+            margin: 0 10px;
+            display: inline-block;
+            transition: 0.5s;
+            text-decoration: none;
+            opacity: 0.75;
+            font-weight: 300;
+        }
 
 .menu__link:hover {
   opacity: 1;
@@ -605,7 +531,7 @@
                         <span class="glowing-txt">Marks upload</span>
                     </button>
                 </form>
-            </div>
+            </div> 
 
             
             </div>
@@ -618,24 +544,38 @@
         </div>
     </div> 
     <div id="foot">
-        <div class="footer">
-            <div class="waves">
-              <div class="wave" id="wave1"></div>
-              <div class="wave" id="wave2"></div>
-              <div class="wave" id="wave3"></div>
-              <div class="wave" id="wave4"></div>
-            </div>
-            
-            <ul class="menu">
-              
-              <form action="/abt">
-                <button class="glowing-btn" id="about1">About</button>
-                </style>
-              </form>
-              
-            </ul>
-          
-          </footer>
+      <div class="footer">
+          <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+          </div>
+          <ul class="social-icon" style="list-style-type: none;">
+          <li class="social-icon_item" style="margin-left: 1rem;"><a class="social-icon_link" href="#">
+              <ion-icon name="logo-facebook" style="color: #9bcffc;"></ion-icon>
+              </a></li>
+          <li class="social-icon_item" style="margin-left: 1rem;"><a class="social-icon_link" href="#">
+              <ion-icon name="logo-twitter" style="color: #9bcffc;"></ion-icon>
+              </a></li>
+          <li class="social-icon_item" style="margin-left: 1rem;"><a class="social-icon_link" href="#">
+              <ion-icon name="logo-linkedin" style="color: #9bcffc;"></ion-icon>
+              </a></li>
+          <li class="social-icon_item" style="margin-left: 1rem;"><a class="social-icon_link" href="#">
+              <ion-icon name="logo-instagram" style="color: #9bcffc;"></ion-icon>
+              </a></li>
+          </ul style>
+          <ul class="menu" style="list-style-type: none;">
+          <li class="menu_item"><a class="menu_link"  style="margin-left: 1rem;" href="/" style="color: #9bcffc;">Home</a></li>
+          <li class="menu_item"><a class="menu_link" style="margin-left: 1rem;" href="/abt" style="color: #9bcffc;">About</a></li>
+          <li class="menu_item"><a class="menu_link" style="margin-left: 1rem;" href="#" style="color: #9bcffc;">Services</a></li>
+          <li class="menu_item"><a class="menu_link" style="margin-left: 1rem;" href="#" style="color: #9bcffc;">Team</a></li>
+          <li class="menu_item"><a class="menu_link" style="margin-left: 1rem;" href="#" style="color: #9bcffc;">Contact</a></li>
+      
+          </ul>
+      
+      </footer>
+  </div>
           <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
           <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </div>   
